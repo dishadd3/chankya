@@ -1,6 +1,8 @@
 Step 1: DEFINING THE SCHEMAA AND CREATING THE DATABASE
 The schema needs to support trips, participants, and expenses cleanly. (Recommended to use Supabase here, very easy to setup, simply login and create database and tables. Slightly unintuitive UI but can be figured out)
 There will be 4 tables: 
+
+
 1. Trips table:
    id: UUID (Primary Key)
 
@@ -8,7 +10,9 @@ There will be 4 tables:
 
    created_at: TIMESTAMP (Default: now())
 
-2. Participants Table:
+   
+
+3. Participants Table:
    id: UUID (Primary Key)
 
   trip_id: UUID (Foreign Key -> trips.id, Cascade Delete)
@@ -16,6 +20,8 @@ There will be 4 tables:
   name: VARCHAR (e.g., "Abhilash")
   
   created_at: TIMESTAMP (Default: now())
+
+  
 
 3. Expenses Table:
    id: UUID (Primary Key)
@@ -31,6 +37,8 @@ There will be 4 tables:
   mode_of_payment: VARCHAR (Optional - e.g., "Cash", "UPI", "Credit Card")
 
   created_at: TIMESTAMP (Default: now())
+
+  
   
 4. expense_splits table:
     id: UUID (Primary Key)
