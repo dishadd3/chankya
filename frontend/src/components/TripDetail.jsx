@@ -173,19 +173,19 @@ export default function TripDetail() {
 
       <div className="flex flex-wrap gap-2 mb-6 border-b border-borderMain pb-2">
         <button 
-          className={`tab flex items-center gap-2 ${activeTab === 'participants' ? 'active' : ''}`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${activeTab === 'participants' ? 'bg-primary/10 text-primary' : 'text-textMuted hover:bg-surface hover:text-textMain'}`}
           onClick={() => setActiveTab('participants')}
         >
           <Users size={16} /> Participants
         </button>
         <button 
-          className={`tab flex items-center gap-2 ${activeTab === 'expenses' ? 'active' : ''}`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${activeTab === 'expenses' ? 'bg-primary/10 text-primary' : 'text-textMuted hover:bg-surface hover:text-textMain'}`}
           onClick={() => setActiveTab('expenses')}
         >
           <Receipt size={16} /> Expenses
         </button>
         <button 
-          className={`tab flex items-center gap-2 ${activeTab === 'settlement' ? 'active' : ''}`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${activeTab === 'settlement' ? 'bg-primary/10 text-primary' : 'text-textMuted hover:bg-surface hover:text-textMain'}`}
           onClick={() => setActiveTab('settlement')}
         >
           <ArrowLeftRight size={16} /> Settlement
