@@ -81,6 +81,15 @@ export default function TripDetail() {
     });
   };
 
+  const handleToggleAll = () => {
+    const isAllSelected = participants.length > 0 && newExpense.involvedParticipants.length === participants.length;
+    if (isAllSelected) {
+      setNewExpense(prev => ({ ...prev, involvedParticipants: [] }));
+    } else {
+      setNewExpense(prev => ({ ...prev, involvedParticipants: participants.map(p => p._id) }));
+    }
+  };
+
   const handleAddExpense = async (e) => {
     e.preventDefault();
     if (!newExpense.description || !newExpense.amount || !newExpense.payer_id) {
@@ -255,7 +264,18 @@ export default function TripDetail() {
                 </select>
               </div>
               <div className="input-group">
-                <label>Split Among (Select multiple)</label>
+                <div className="flex justify-between items-center">
+                  <label>Split Among (Select multiple)</label>
+                  {participants.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={handleToggleAll}
+                      className="text-xs font-semibold text-primary hover:text-primaryHover transition-colors"
+                    >
+                      {newExpense.involvedParticipants.length === participants.length ? 'Deselect All' : 'Select All'}
+                    </button>
+                  )}
+                </div>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {participants.map(p => {
                     const isSelected = newExpense.involvedParticipants.includes(p._id);
